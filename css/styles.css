@@ -1,0 +1,11 @@
+body main{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0px 300px 300px 300px;
+    }
+body header{
+    display: flex;
+    justify-content: left;
+    margin: 100px 0px 50px 300px;
+}
