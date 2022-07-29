@@ -4,7 +4,7 @@ let currentBalance = 0;
 
 k = 0
 
-class country{
+class Country{
     constructor(name, iva, shipping) {
         this.name     = name;
         this.iva      = iva;
@@ -12,50 +12,47 @@ class country{
     }
 }
 
-class product{
-    constructor(name, cost, id, stock, soldout=false){
-        this.name = name;
-        this.cost = cost;
-        this.cost = id;
-        this.stock= stock;
-    }
-    checkStock(){
-        if(this.stock = 0)
-            this.soldout = true
-    }
-
-
-}
 function deposit(amount){
     currentBalance =+ amount
 }
 
-const countryNames =    ["Uruguay","Argentina","Colombia","Chile","Peru","Brasil","Bolivia","Ecuador","Venezuela","Paraguay"]
-const countryIva   =    [22,        21,         19,        19,     18,    17,      13,       12,       12,         10]
-const countryShipping = [500,       0,          2000,      750,    1500,  750,     1500,     2000,     2000,       750]
-let countryList = [new country('Uruguay',22,500),
- new country('Argentina', 21, 0), 
- new country('Colombia', 19, 2000), 
- new country('Chile', 19, 750), 
- new country('Peru', 18, 1500), 
- new country('Brasil', 17, 750), 
- new country('Bolivia', 13, 1500), 
- new country('Ecuador', 12, 2000), 
- new country('Venezuela', 12, 2000), 
- new country('Paraguay', 10, 750)]
+let countryList = [new Country('Uruguay',22,500),
+ new Country('Argentina', 21, 0), 
+ new Country('Colombia', 19, 2000), 
+ new Country('Chile', 19, 750), 
+ new Country('Peru', 18, 1500), 
+ new Country('Brasil', 17, 750), 
+ new Country('Bolivia', 13, 1500), 
+ new Country('Ecuador', 12, 2000), 
+ new Country('Venezuela', 12, 2000), 
+ new Country('Paraguay', 10, 750)]
 
-/*for(let i = 0; i < countryNames.length;  i++) 
-    countryList.push(new country(countryNames[i], countryIva[i], countryShipping[i]));*/
-    
+
 console.log(countryList)
 
 const nombre = prompt("Introduce tu nombre de usuario: ")
 let deposito = parseInt(prompt("Bienvenido "+nombre+"!\n Por favor, realiza un deposito incial: "))
 deposit(deposito)
 alert('Deposito completado. Ahora tu saldo es de '+(currentBalance)+'$!')
-//let pais = parseInt(prompt('Para continuar, ingresa el ID de tu pais:\n0- Uruguay\n1-Argentina\n2-Colombia\n3-Chile\n4-Peru\n5-Brasil\n6-Bolivia\n7-Ecuador\n8-Venezuela\n9-Paraguay'))
-let pais = prompt('Para continuar, ingresa el ID de tu pais:\n0- Uruguay\n1-Argentina\n2-Colombia\n3-Chile\n4-Peru\n5-Brasil\n6-Bolivia\n7-Ecuador\n8-Venezuela\n9-Paraguay')
 
+let choosenPais 
+
+while(choosenPais == null){
+    var pais = prompt('Para continuar, ingresa el nombre de tu pais:\n0-Uruguay\n1-Argentina\n2-Colombia\n3-Chile\n4-Peru\n5-Brasil\n6-Bolivia\n7-Ecuador\n8-Venezuela\n9-Paraguay')
+    for(let i = 0; i < countryList.length; i++ ){
+        if(pais == countryList[i].name){
+            choosenPais = countryList[i]
+            console.log(pais)
+            console.log(countryList[i].name)
+            break;
+            
+        }
+    }
+    if(choosenPais==null){
+        alert('Nombre de pais invalido, vuelve a intentarlo. (Recuerda respetar primera letra mayuscula)') 
+    }
+}
+console.log(choosenPais)
 
 do {
     function type() {
@@ -98,8 +95,8 @@ do {
   
         case 0:
             let reset = 0
-            alert("Valor del carrito: "+totalPrice+"$\nImpuestos: "+totalPrice*((countryList[pais].iva/100))+"$\nEnvio: "+countryList[pais].shipping+"$")
-            let total = totalPrice+(totalPrice*(countryList[pais].iva/100))+countryList[pais].shipping
+            alert("Valor del carrito: "+totalPrice+"$\nImpuestos: "+totalPrice*((choosenPais.iva/100))+"$\nEnvio: "+choosenPais.shipping+"$")
+            let total = totalPrice+(totalPrice*(choosenPais.iva/100))+choosenPais.shipping
             exit = parseInt(prompt("Total a pagar: "+total+"$\n"+"Escriba '1' para confirmar la operacion o '0' para cancelarla"))
             if(total>currentBalance)
                 alert("Saldo insuficiente. Operacion revertida. Refresca la pagina para iniciar otra compra.")
