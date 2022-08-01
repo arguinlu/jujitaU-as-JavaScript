@@ -1,42 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <header>
-        <h1>LISTA DE PRODUCTOS</h1>
+    <header class="shadow text-center pt-5 pb-2">
+        <h1 class="fw-bolder">LISTA DE PRODUCTOS</h1>
     </header>
-    <main>
-        <div>
-            <h2>ID 456 - Basicas</h2> 
-            <p>Precio: 1500$</p>
+    <section class="productos mb-5 pb-5">
+
+        <div class="container">
+            <div id="alerta">
+            </div>
+
+            <div class="row g-5 m-3">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-header">ID 456</div>
+                        <div class="card-body">
+                            <h5 class="card-title">NAILS BASICAS</h5>
+                            <p class="card-text">Breve texto de descripcion usado como ejemplo.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <p>$1500 - <strong>DISPONIBLE</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-header">ID 789</div>
+                        <div class="card-body">
+                            <h5 class="card-title">BABY BOOMERS</h5>
+                            <p class="card-text">Breve texto de descripcion usado como ejemplo.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <p>$2000 - <strong>DISPONIBLE</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-header">ID 123</div>
+                        <div class="card-body">
+                            <h5 class="card-title">NAIL ART</h5>
+                            <p class="card-text">Breve texto de descripcion usado como ejemplo.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <p>$3000 - <strong>DISPONIBLE</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5 m-3">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-header">ID 334</div>
+                        <div class="card-body">
+                            <h5 class="card-title">PESTAÑAS</h5>
+                            <p class="card-text">Breve texto de descripcion usado como ejemplo.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <p>$6000 - <strong>DISPONIBLE</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-header">ID 775</div>
+                        <div class="card-body">
+                            <h5 class="card-title">LABIALES</h5>
+                            <p class="card-text">Breve texto de descripcion usado como ejemplo.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <p>$750 - <strong>DISPONIBLE</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-header">ID 584</div>
+                        <div class="card-body">
+                            <h5 class="card-title">MAQUILLAJE</h5>
+                            <p class="card-text">Breve texto de descripcion usado como ejemplo.</p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <p>$5500 - <strong>DISPONIBLE</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <h2>ID 789 - Maquillaje para eventos</h2> 
-            <p>Precio: 4000$</p>
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <h2>ID 123 - Baby Boomers</h2> 
-            <p>Precio: 2000$</p>
+    </section>
+    <section class="cart pt-5 pb-5">
+        <div class="container-fluid ">
+            
+            <div class="row justify-content-center">
+                <h2 class="text-start ps-5 ms-5 mb-3">CARRITO DE COMPRAS</h2> 
+                
+                <div class="col-7 cartProds me-5 ms-3">
+                    <div id="cartProds" class="container text-center p-5">
+
+                    </div>
+                    
+                </div>
+                <div class="col-4 personalData p-3 ">
+                    <h3>Informacion personal</h3>
+                    <form class=" ">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <input type="text" id="form3Example1" class="form-control" />
+                                    <label class="form-label" for="form3Example1">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <input type="text" id="form3Example2" class="form-control" />
+                                    <label class="form-label" for="form3Example2">Apellidos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form2Example1" class="form-control" />
+                            <label class="form-label" for="form2Example1">Correo Electronico</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="cardNum" class="form-control" />
+                            <label class="form-label" for="cardNum">Numero de tarjeta</label>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <div class="form-outline">
+                                    <input type="text" id="cardExp" class="form-control" />
+                                    <label class="form-label" for="cardExp">Fecha de vencimiento</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-outline">
+                                    <input type="text" id="cardCod" class="form-control" />
+                                    <label class="form-label" for="cardCod">Codigo</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                
+            </div>
+
         </div>
-        <div>
-            <h2>ID 334 - Nail Art</h2> 
-            <p>Precio: 2500$</p>
-        </div>
-        <div>
-            <h2>ID 775 - Pestañas</h2> 
-            <p>Precio: 5000$</p>
-        </div>
-        <div>
-            <h2>ID 584 - Labial</h2> 
-            <p>Precio: 3000$</p>
-        </div>
-    </main>
+
+    </section>
+
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 </body>
+
 </html>

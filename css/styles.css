@@ -1,11 +1,30 @@
-body main{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 0px 300px 300px 300px;
+/* Colors:
+    Header: #FCF5EE
+    Body:   #FBE8E7
+    Footer: #F7DDDE
+    Alt:    #FFC4D0*/
+
+    body{
+        background-color: #FBE8E7;
     }
-body header{
-    display: flex;
-    justify-content: left;
-    margin: 100px 0px 50px 300px;
-}
+    section.cart{
+        background-color: #F7DDDE;
+    }
+    header{
+        background-color: #FFC4D0;
+    }
+    .productos{
+        background-color: #FBE8E7;
+    }
+    .card{
+        background-color: #FCF5EE;
+    }
+    .agotado{
+        color: #cc393d;
+    }
+    .personalData{
+        background-color:  #FBE8E7 ;
+    }
+    .cartProds{
+        background-color:  #FBE8E7 ;
+    }
