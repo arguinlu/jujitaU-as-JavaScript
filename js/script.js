@@ -6,6 +6,7 @@ cart = 0;
 let alerta = document.getElementById("alerta");
 let cards = document.getElementsByClassName("btn");
 let cardsStock = document.getElementsByClassName("card-footer");
+let cartProds = document.getElementById("cartProds")
 
 let id456 = { name: "NAILS BASICAS", stock: 5 , price: 1500, onCart: 0 };
 let id789 = { name: "BABY BOOMERS", stock: 7, price: 2000, onCart: 0 };
@@ -14,125 +15,63 @@ let id334 = { name: "PESTAÑAS", stock: 13, price: 6000, onCart: 0 };
 let id775 = { name: "LABIALES", stock: 4, price: 750, onCart: 0};
 let id584 = { name: "MAQUILLAJES", stock: 1, price: 5500, onCart: 0 };
 productos = [id456, id789, id123, id334, id775, id584];
-cards[0].onclick = () => {
-    if(id456.stock > 0){
-        cart += id456.price;
-        id456.stock -= 1;
-        id456.onCart += 1;
-        alerta.innerHTML = `<div class="alert alert-success m-5 mb-2" role="alert"><p>Felicitaciones! Has añadido ${id456.name} correctamente. Valor del carrito: <strong> ${cart} </strong>$. <a href="#" class="alert-link">Haz click aqui para finalizar la compra</a></p></div>`;
+var checkOuts = []
+function comprar(indexSelected){
+    var idSelected = productos[indexSelected]
+    console.log(idSelected)
+    if(idSelected.stock > 0){
+        cart += idSelected.price;
+        idSelected.stock -= 1;
+        idSelected.onCart += 1;
+        alerta.innerHTML = `<div class="alert alert-success m-5 mb-2" role="alert"><p>Felicitaciones! Has añadido ${idSelected.name} correctamente. Valor del carrito: <strong> ${cart} </strong>$. <a href="#" class="alert-link">Haz click aqui para finalizar la compra</a></p></div>`;
 
-        if(id456.stock < 1){
-            cardsStock[0].innerHTML = `<p>$${id456.price} - <strong class="agotado">AGOTADO</strong></p>`
-            console.log(id456.stock)
+        if(idSelected.stock < 1){
+            cardsStock[indexSelected].innerHTML = `<p>$${idSelected.price} - <strong class="agotado">AGOTADO</strong></p>`
+            console.log(idSelected.stock)
         }
 
-    } else if(id456.stock < 1){
-        console.log(id456.stock)
+    } else if(idSelected.stock < 1){
+        console.log(idSelected.stock)
         alerta.innerHTML = `<div class="alert alert-danger m-5 mb-2" role="alert"><p>Lo sentimos! Este producto esta agotado. Intentalo de nuevo en otro momento.</p></div>`;
+        return
     }
 
-
+    var checkOut = document.createElement("label");
+    checkOut.innerHTML = `  <div>
+                                <p>
+                                    <strong>${idSelected.name} - </strong> Hay ${idSelected.onCart} en el carrito, por un valor total de $${(idSelected.price * idSelected.onCart)}   
+                                </p>
+                            </div>`;
+    
+    if(idSelected.onCart > 1){
+        checkOuts[indexSelected].innerHTML = checkOut.innerHTML
+    } else{
+        checkOuts[indexSelected] = checkOut
+        cartProds.appendChild(checkOuts[indexSelected])
+        
+    }
+    console.log(checkOuts[indexSelected])
+}
+cards[0].onclick = () => {
+    comprar(0)
 };
 cards[1].onclick = () => {
-    if(id789.stock > 0){
-        cart += id789.price;
-        id789.stock -= 1;
-        id789.onCart += 1;
-        alerta.innerHTML = `<div class="alert alert-success m-5 mb-2" role="alert"><p>Felicitaciones! Has añadido ${id456.name} correctamente. Valor del carrito: <strong> ${cart} </strong>$. <a href="#" class="alert-link">Haz click aqui para finalizar la compra</a></p></div>`;
-
-        if(id789.stock < 1){
-            cardsStock[1].innerHTML = `<p>$${id789.price} - <strong class="agotado">AGOTADO</strong></p>`
-            console.log(id789.stock)
-        }
-
-    } else if(id789.stock < 1){
-        console.log(id789.stock)
-        alerta.innerHTML = `<div class="alert alert-danger m-5 mb-2" role="alert"><p>Lo sentimos! Este producto esta agotado. Intentalo de nuevo en otro momento.</p></div>`;
-    }
-
-
-
+    comprar(1)
 };
 cards[2].onclick = () => {
-    if(id123.stock > 0){
-        cart += id123.price;
-        id123.stock -= 1;
-        id123.onCart += 1;
-        alerta.innerHTML = `<div class="alert alert-success m-5 mb-2" role="alert"><p>Felicitaciones! Has añadido ${id456.name} correctamente. Valor del carrito: <strong> ${cart} </strong>$. <a href="#" class="alert-link">Haz click aqui para finalizar la compra</a></p></div>`;
-
-        if(id123.stock < 1){
-            cardsStock[2].innerHTML = `<p>$${id123.price} - <strong class="agotado">AGOTADO</strong></p>`
-            console.log(id123.stock)
-        }
-
-    } else if(id123.stock < 1){
-        console.log(id123.stock)
-        alerta.innerHTML = `<div class="alert alert-danger m-5 mb-2" role="alert"><p>Lo sentimos! Este producto esta agotado. Intentalo de nuevo en otro momento.</p></div>`;
-    }
-
-
-
+    comprar(2)
 };
 cards[3].onclick = () => {
-    if(id334.stock > 0){
-        cart += id456.price;
-        id334.stock -= 1;
-        id334.onCart += 1;
-        alerta.innerHTML = `<div class="alert alert-success m-5 mb-2" role="alert"><p>Felicitaciones! Has añadido ${id456.name} correctamente. Valor del carrito: <strong> ${cart} </strong>$. <a href="#" class="alert-link">Haz click aqui para finalizar la compra</a></p></div>`;
-
-        if(id334.stock < 1){
-            cardsStock[3].innerHTML = `<p>$${id334.price} - <strong class="agotado">AGOTADO</strong></p>`
-            console.log(id334.stock)
-        }
-
-    } else if(id334.stock < 1){
-        console.log(id334.stock)
-        alerta.innerHTML = `<div class="alert alert-danger m-5 mb-2" role="alert"><p>Lo sentimos! Este producto esta agotado. Intentalo de nuevo en otro momento.</p></div>`;
-    }
-
-
+    comprar(3)
 };
 cards[4].onclick = () => {
-    if(id775.stock > 0){
-        cart += id456.price;
-        id775.stock -= 1;
-        id775.onCart += 1;
-        alerta.innerHTML = `<div class="alert alert-success m-5 mb-2" role="alert"><p>Felicitaciones! Has añadido ${id456.name} correctamente. Valor del carrito: <strong> ${cart} </strong>$. <a href="#" class="alert-link">Haz click aqui para finalizar la compra</a></p></div>`;
-
-        if(id775.stock < 1){
-            cardsStock[4].innerHTML = `<p>$${id775.price} - <strong class="agotado">AGOTADO</strong></p>`
-            console.log(id775.stock)
-        }
-
-    } else if(id775.stock < 1){
-        console.log(id775.stock)
-        alerta.innerHTML = `<div class="alert alert-danger m-5 mb-2" role="alert"><p>Lo sentimos! Este producto esta agotado. Intentalo de nuevo en otro momento.</p></div>`;
-    }
-
-
-
+    comprar(4)
 };
 cards[5].onclick = () => {
-    if(id584.stock > 0){
-        cart += id584.price;
-        id584.stock -= 1;
-        id584.onCart += 1;
-        alerta.innerHTML = `<div class="alert alert-success m-5 mb-2" role="alert"><p>Felicitaciones! Has añadido ${id456.name} correctamente. Valor del carrito: <strong> ${cart} </strong>$. <a href="#" class="alert-link">Haz click aqui para finalizar la compra</a></p></div>`;
-
-        if(id584.stock < 1){
-            cardsStock[5].innerHTML = `<p>$${id584.price} - <strong class="agotado">AGOTADO</strong></p>`
-            console.log(id584.stock)
-        }
-
-    } else if(id584.stock < 1){
-        console.log(id584.stock)
-        alerta.innerHTML = `<div class="alert alert-danger m-5 mb-2" role="alert"><p>Lo sentimos! Este producto esta agotado. Intentalo de nuevo en otro momento.</p></div>`;
-    }
-
-
+    comprar(5)
 };
 
-console.log(cards[0].innerHTML);
+console.log(cards[5].innerHTML);
 console.log(alerta.innerHTML);
 
 /*let totalPrice = 0;
