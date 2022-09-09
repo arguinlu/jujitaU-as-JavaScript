@@ -1,0 +1,17 @@
+[
+  {
+    "name": "ESMALTES",
+    "stock": 3,
+    "price": 152
+  },
+  {
+    "name": "BRILLITOS",
+    "stock": 300,
+    "price": 23
+  },
+  {
+    "name": "GLITTER",
+    "stock": 89,
+    "price": 32
+  }
+]
